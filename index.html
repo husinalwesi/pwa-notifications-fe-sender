@@ -1,30 +1,348 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PWA Notification</title>
-    <link rel="manifest" href="manifest.json" />
-    <script src="app.js"></script>
-  </head>
-  <body>
-    <h1>PWA Push Demo</h1>
-    <button id="subscribe">Subscribe for Notifications</button>
-    <button id="sendNotification">Send Notification</button>
 
-    <!--  -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor Purpose Selection</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0C2E82">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #1a1a2e;
+            background: linear-gradient(117deg, #579B57 14.77%, #0C2E82 80.91%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            width: 100%;
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            position: relative;
+            background: linear-gradient(117deg, #579B57 14.77%, #0C2E82 80.91%);
+            background-attachment: fixed;
+        }
+
+        /* Header Styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 48px 32px 0 32px;
+            width: 100%;
+        }
+
+        .header img:first-child {
+            flex-shrink: 0;
+            height: 44px;
+            width: 284px;
+        }
+
+        .header img:last-child {
+            flex-shrink: 0;
+            height: 44px;
+            width: 166px;
+        }
+
+        /* Title Styles */
+        .title {
+            padding: 0 20px;
+            margin: 288px auto 56px auto;
+            font-size: 36px;
+            letter-spacing: -0.025em;
+            text-align: center;
+            color: white;
+            line-height: 50px;
+            width: 635px;
+            max-width: 100%;
+        }
+
+        /* Main Links Container */
+        .main-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            margin: 0 auto;
+            width: 754px;
+            max-width: 100%;
+            padding:  40px 0px;
+        }
+
+        /* Card Styles */
+        .purpose-card {
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+            gap: 56px;
+            justify-content: center;
+            align-items: center;
+            padding: 32px;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.2);
+            height: 325px;
+            width: 369px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: white;
+            font-family: inherit;
+        }
+
+        .purpose-card:hover,
+        .purpose-card:focus {
+            background: rgba(255, 255, 255, 0.3);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+        }
+
+        .purpose-card:focus {
+            outline: 2px solid rgba(255, 255, 255, 0.5);
+            outline-offset: 2px;
+        }
+
+        .card-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-title {
+            font-size: 32px;
+            text-align: center;
+            color: white;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header {
+                padding: 32px 20px 0 20px;
+            }
+
+            .header img:first-child {
+                height: 34px;
+                width: 220px;
+            }
+
+            .header img:last-child {
+                height: 34px;
+                width: 130px;
+            }
+
+            .title {
+                margin: 208px auto 40px auto;
+                font-size: 30px;
+                line-height: 40px;
+            }
+
+            .main-links {
+                gap: 12px;
+            }
+
+            .purpose-card {
+                gap: 40px;
+                padding: 24px;
+                height: 280px;
+                width: calc(50% - 6px);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .header {
+                flex-direction: column;
+                gap: 20px;
+                align-items: center;
+                padding: 20px;
+            }
+
+            .header img:first-child {
+                height: 31px;
+                width: 200px;
+            }
+
+            .header img:last-child {
+                height: 32px;
+                width: 120px;
+            }
+
+            .title {
+                margin: 128px auto 32px auto;
+                font-size: 24px;
+                letter-spacing: -0.025em;
+                line-height: 32px;
+            }
+
+            .main-links {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .purpose-card {
+                gap: 32px;
+                padding: 20px;
+                width: 100%;
+                height: 250px;
+            }
+
+            .card-title {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <img src="./images/ihorizons-logo.svg"
+                alt="iHorizons Logo">
+            <img src="./images/people-dynamic-logo.svg"
+                alt="People Dynamic Logo">
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Title Section -->
+            <section>
+                <h1 class="title">Please select purpose for your visit</h1>
+            </section>
+
+            <!-- Purpose Selection Cards -->
+            <section class="main-links" role="group" aria-label="Purpose selection options">
+                <!-- Meeting Card -->
+                <button class="purpose-card" aria-label="Select Meeting purpose" onclick="selectPurpose('meeting')">
+                    <div class="card-icon">
+                        <img src="./images/meeting.svg" alt="Meeting Icon">
+                    </div>
+                    <h3 class="card-title">Meeting</h3>
+                </button>
+
+                <!-- Delivery Card -->
+                <button class="purpose-card" aria-label="Select Delivery purpose" onclick="selectPurpose('delivery')">
+                    <div class="card-icon">
+                        <img src="./images/delivery.svg" alt="Delivery Icon">
+                    </div>
+                    <h3 class="card-title">Delivery</h3>
+                </button>
+
+                <!-- Enquiry Card -->
+                <button class="purpose-card" aria-label="Select Enquiry purpose" onclick="selectPurpose('enquiry')">
+                    <div class="card-icon">
+                        <img src="./images/enquiry.svg" alt="Enquiry Icon">
+                    </div>
+                    <h3 class="card-title">Enquiry</h3>
+                </button>
+
+                <!-- Need Help Card -->
+                <button class="purpose-card" aria-label="Select Need Help purpose" onclick="selectPurpose('help')">
+                    <div class="card-icon">
+                        <img src="./images/need-help.svg" alt="Need Help Icon">
+                    </div>
+                    <h3 class="card-title">Need Help</h3>
+                </button>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
     <script>
-      document
-        .getElementById("subscribe")
-        .addEventListener("click", async () => {
-          subscribe();
+        function selectPurpose(purpose) {
+            console.log('Selected purpose:', purpose);
+
+            // Add visual feedback
+            const cards = document.querySelectorAll('.purpose-card');
+            cards.forEach(card => {
+                card.style.background = 'rgba(255, 255, 255, 0.2)';
+            });
+
+            // Highlight selected card
+            event.target.closest('.purpose-card').style.background = 'rgba(255, 255, 255, 0.4)';
+
+            // Send push notification for purpose selection
+            const purposeMessages = {
+                'meeting': {
+                    title: 'Meeting Request Received',
+                    body: 'A visitor has requested a meeting. Please prepare to assist them.'
+                },
+                'delivery': {
+                    title: 'Delivery Notification',
+                    body: 'A delivery person is waiting. Please check reception area.'
+                },
+                'enquiry': {
+                    title: 'Enquiry Request',
+                    body: 'A visitor has an enquiry. Someone should attend to them soon.'
+                },
+                'help': {
+                    title: 'Help Request',
+                    body: 'A visitor needs assistance. Please provide immediate support.'
+                }
+            };
+
+            const message = purposeMessages[purpose] || {
+                title: 'Visitor Alert',
+                body: 'A visitor has arrived and needs attention.'
+            };
+
+            // Send notification
+            if (typeof pushNotification === 'function') {
+                pushNotification(message.title, message.body);
+            }
+
+            // Navigate to team selection with purpose parameter
+            setTimeout(() => {
+                window.location.href = `team-selection.html?purpose=${encodeURIComponent(purpose)}`;
+            }, 200); // Small delay for visual feedback
+        }
+
+        // Add keyboard navigation support
+        document.addEventListener('keydown', function (event) {
+            const cards = document.querySelectorAll('.purpose-card');
+            const currentFocus = document.activeElement;
+            const currentIndex = Array.from(cards).indexOf(currentFocus);
+
+            if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+                event.preventDefault();
+                const nextIndex = (currentIndex + 1) % cards.length;
+                cards[nextIndex].focus();
+            } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+                event.preventDefault();
+                const prevIndex = currentIndex === 0 ? cards.length - 1 : currentIndex - 1;
+                cards[prevIndex].focus();
+            }
         });
 
-      document
-        .getElementById("sendNotification")
-        .addEventListener("click", () => {
-          pushNotification("Hello!", "This is your first push notification 🎉");
+        // Add touch support for mobile devices
+        document.querySelectorAll('.purpose-card').forEach(card => {
+            card.addEventListener('touchstart', function () {
+                this.style.background = 'rgba(255, 255, 255, 0.3)';
+            });
+
+            card.addEventListener('touchend', function () {
+                setTimeout(() => {
+                    this.style.background = 'rgba(255, 255, 255, 0.2)';
+                }, 150);
+            });
         });
     </script>
-  </body>
+</body>
+
 </html>
