@@ -3,7 +3,7 @@
 //     if (!event.data) {
 //         // console.warn('[Service Worker] Push received but no data!');
 //         return;
-//     }
+//     } 
 
 //     const data = event.data.json();
 //     // console.log('[Service Worker] Push data:', data);
