@@ -1,275 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Thank You</title>
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#0C2E82">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap">
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#0C2E82" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
+    />
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #1a1a2e;
-            background: linear-gradient(117deg, #579B57 14.77%, #0C2E82 80.91%);
-            background-attachment: fixed;
-            min-height: 100vh;
-            width: 100%;
-            position: relative;
-            margin: 0;
-            padding: 0;
-        }
+      body {
+        font-family: "Inter", sans-serif;
+        background: #1a1a2e;
+        background: linear-gradient(117deg, #579b57 14.77%, #0c2e82 80.91%);
+        background-attachment: fixed;
+        min-height: 100vh;
+        width: 100%;
+        position: relative;
+        margin: 0;
+        padding: 0;
+      }
 
-        .container {
-            width: 100%;
-            min-height: 100vh;
-            position: relative;
-            background: linear-gradient(117deg, #579B57 14.77%, #0C2E82 80.91%);
-            background-attachment: fixed;
-        }
+      .container {
+        width: 100%;
+        min-height: 100vh;
+        position: relative;
+        background: linear-gradient(117deg, #579b57 14.77%, #0c2e82 80.91%);
+        background-attachment: fixed;
+      }
 
-        /* Header Styles */
+      /* Header Styles */
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 48px 32px 0 32px;
+        width: 100%;
+      }
+
+      .header img:first-child {
+        flex-shrink: 0;
+        height: 44px;
+        width: 284px;
+      }
+
+      .header img:last-child {
+        flex-shrink: 0;
+        height: 44px;
+        width: 166px;
+      }
+
+      /* Content Container */
+      .content-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: calc(100vh - 150px);
+        padding: 0 20px;
+      }
+
+      /* Thank You Section */
+      .thank-you-section {
+        text-align: center;
+        max-width: 800px;
+        width: 100%;
+      }
+
+      .thank-you-title {
+        color: #fff;
+        text-align: center;
+        font-family: "Inter", sans-serif;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 30px;
+        margin-bottom: 40px;
+      }
+
+      .thank-you-description {
+        color: #fff;
+        text-align: center;
+        font-family: "Inter", sans-serif;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 50px;
+      }
+
+      /* Home Button */
+      .home-button-container {
+        margin-top: 80px;
+      }
+
+      .home-button {
+        padding: 16px 32px;
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        border-radius: 24px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        color: white;
+        font-family: "Inter", sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+      }
+
+      .home-button:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(1.05);
+      }
+
+      .home-button:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 768px) {
         .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            padding: 48px 32px 0 32px;
-            width: 100%;
+          padding: 32px 20px 0 20px;
         }
 
         .header img:first-child {
-            flex-shrink: 0;
-            height: 44px;
-            width: 284px;
+          height: 34px;
+          width: 220px;
         }
 
         .header img:last-child {
-            flex-shrink: 0;
-            height: 44px;
-            width: 166px;
-        }
-
-        /* Content Container */
-        .content-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: calc(100vh - 150px);
-            padding: 0 20px;
-        }
-
-        /* Thank You Section */
-        .thank-you-section {
-            text-align: center;
-            max-width: 800px;
-            width: 100%;
+          height: 34px;
+          width: 130px;
         }
 
         .thank-you-title {
-            color: #FFF;
-            text-align: center;
-            font-family: 'Inter', sans-serif;
-            font-size: 40px;
-            font-style: normal;
-            font-weight: 600;
-            line-height: 30px;
-            margin-bottom: 40px;
+          font-size: 32px;
+          line-height: 28px;
+          margin-bottom: 32px;
         }
 
         .thank-you-description {
-            color: #FFF;
-            text-align: center;
-            font-family: 'Inter', sans-serif;
-            font-size: 40px;
-            font-style: normal;
-            font-weight: 300;
-            line-height: 50px;
+          font-size: 32px;
+          line-height: 42px;
         }
 
-        /* Home Button */
         .home-button-container {
-            margin-top: 80px;
+          margin-top: 60px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .container {
+          padding: 0 20px;
+        }
+
+        .header {
+          flex-direction: column;
+          gap: 20px;
+          align-items: center;
+          padding: 20px;
+        }
+
+        .header img:first-child {
+          height: 31px;
+          width: 200px;
+        }
+
+        .header img:last-child {
+          height: 32px;
+          width: 120px;
+        }
+
+        .thank-you-title {
+          font-size: 28px;
+          line-height: 26px;
+          margin-bottom: 24px;
+        }
+
+        .thank-you-description {
+          font-size: 24px;
+          line-height: 32px;
+        }
+
+        .home-button-container {
+          margin-top: 40px;
         }
 
         .home-button {
-            padding: 16px 32px;
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            border-radius: 24px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            color: white;
-            font-family: 'Inter', sans-serif;
-            font-size: 18px;
-            font-weight: 400;
+          padding: 12px 24px;
+          font-size: 16px;
         }
-
-        .home-button:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.05);
-        }
-
-        .home-button:focus {
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            .header {
-                padding: 32px 20px 0 20px;
-            }
-
-            .header img:first-child {
-                height: 34px;
-                width: 220px;
-            }
-
-            .header img:last-child {
-                height: 34px;
-                width: 130px;
-            }
-
-            .thank-you-title {
-                font-size: 32px;
-                line-height: 28px;
-                margin-bottom: 32px;
-            }
-
-            .thank-you-description {
-                font-size: 32px;
-                line-height: 42px;
-            }
-
-            .home-button-container {
-                margin-top: 60px;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .container {
-                padding: 0 20px;
-            }
-
-            .header {
-                flex-direction: column;
-                gap: 20px;
-                align-items: center;
-                padding: 20px;
-            }
-
-            .header img:first-child {
-                height: 31px;
-                width: 200px;
-            }
-
-            .header img:last-child {
-                height: 32px;
-                width: 120px;
-            }
-
-            .thank-you-title {
-                font-size: 28px;
-                line-height: 26px;
-                margin-bottom: 24px;
-            }
-
-            .thank-you-description {
-                font-size: 24px;
-                line-height: 32px;
-            }
-
-            .home-button-container {
-                margin-top: 40px;
-            }
-
-            .home-button {
-                padding: 12px 24px;
-                font-size: 16px;
-            }
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <img src="./images/ihorizons-logo.svg" alt="iHorizons Logo">
-            <img src="./images/people-dynamic-logo.svg" alt="People Dynamic Logo">
-        </header>
+      <!-- Header -->
+      <header class="header">
+        <img src="./images/ihorizons-logo.svg" alt="iHorizons Logo" />
+        <img src="./images/people-dynamic-logo.svg" alt="People Dynamic Logo" />
+      </header>
 
-        <!-- Main Content -->
-        <main class="content-container">
-            <!-- Thank You Section -->
-            <section class="thank-you-section">
-                <h1 class="thank-you-title">Thank You</h1>
-                <p class="thank-you-description">
-                    Your request has been received.<br>
-                    Someone from our team will be with you shortly
-                </p>
-                
-                
-            </section>
-        </main>
+      <!-- Main Content -->
+      <main class="content-container">
+        <!-- Thank You Section -->
+        <section class="thank-you-section">
+          <h1 class="thank-you-title">Thank You</h1>
+          <p class="thank-you-description">
+            Your request has been received.<br />
+            Someone from our team will be with you shortly
+          </p>
+        </section>
+      </main>
     </div>
 
     <script src="app.js"></script>
     <script>
-        // Get purpose and team from URL parameters
-        function getParametersFromURL() {
-            const urlParams = new URLSearchParams(window.location.search);
-            return {
-                purpose: urlParams.get('purpose') || 'visit',
-                team: urlParams.get('team') || 'team'
-            };
+      // Get purpose and team from URL parameters
+      function getParametersFromURL() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return {
+          purpose: urlParams.get("purpose") || "visit",
+          team: urlParams.get("team") || "team",
+        };
+      }
+
+      function goHome() {
+        console.log("Returning to home screen");
+        window.location.href = "index.html";
+      }
+
+      // Add keyboard navigation support
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" || event.key === "Enter") {
+          goHome();
         }
+      });
 
-        function goHome() {
-            console.log('Returning to home screen');
-            window.location.href = 'index.html';
+      // Log the selection (no additional notification needed)
+      document.addEventListener("DOMContentLoaded", function () {
+        sendNoti();
+      });
+
+      async function sendNoti() {
+        const params = getParametersFromURL();
+
+        const team = params.team;
+        const innerteam = params.purpose;
+        // console.log("Thank you page loaded for:", team, innerteam);
+
+        // Send single notification for both purpose and team selection
+        if (typeof sendVisitorNotification === "function") {
+          await sendVisitorNotification(innerteam, team);
+          // Auto-redirect after 2 seconds
+          setTimeout(() => {
+            goHome();
+          }, 2000);
         }
-
-        // Add keyboard navigation support
-        document.addEventListener('keydown', function (event) {
-            if (event.key === 'Escape' || event.key === 'Enter') {
-                goHome();
-            }
-        });
-
-        // Auto-redirect after 10 seconds (optional)
-        setTimeout(() => {
-            // Uncomment the line below if you want auto-redirect
-            // goHome();
-        }, 10000);
-
-        // Send final confirmation notification and log the selection
-        document.addEventListener('DOMContentLoaded', function() {
-            const params = getParametersFromURL();
-            console.log('Thank you page loaded for:', params);
-            
-            // Send final confirmation notification
-            const confirmationMessage = {
-                title: 'Visitor Request Confirmed',
-                body: `${params.team} team has been notified about the ${params.purpose} request. Please assist the visitor promptly.`
-            };
-
-            // Send notification after a short delay to ensure app.js is loaded
-            setTimeout(() => {
-                if (typeof pushNotification === 'function') {
-                    pushNotification(confirmationMessage.title, confirmationMessage.body);
-                }
-            }, 1000);
-        });
+      }
     </script>
-</body>
-
-</html> 
+  </body>
+</html>

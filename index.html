@@ -257,16 +257,16 @@
             <h3 class="card-title">Delivery</h3>
           </button>
 
-          <!-- Enquiry Card -->
+          <!-- Inquiry Card -->
           <button
             class="purpose-card"
-            aria-label="Select Enquiry purpose"
-            onclick="selectPurpose('enquiry')"
+            aria-label="Select Inquiry purpose"
+            onclick="selectPurpose('inquiry')"
           >
             <div class="card-icon">
-              <img src="./images/enquiry.svg" alt="Enquiry Icon" />
+              <img src="./images/enquiry.svg" alt="Inquiry Icon" />
             </div>
-            <h3 class="card-title">Enquiry</h3>
+            <h3 class="card-title">Inquiry</h3>
           </button>
 
           <!-- Need Help Card -->
@@ -298,36 +298,6 @@
         // Highlight selected card
         event.target.closest(".purpose-card").style.background =
           "rgba(255, 255, 255, 0.4)";
-
-        // Send push notification for purpose selection
-        const purposeMessages = {
-          meeting: {
-            title: "Meeting Request Received",
-            body: "A visitor has requested a meeting. Please prepare to assist them.",
-          },
-          delivery: {
-            title: "Delivery Notification",
-            body: "A delivery person is waiting. Please check reception area.",
-          },
-          enquiry: {
-            title: "Enquiry Request",
-            body: "A visitor has an enquiry. Someone should attend to them soon.",
-          },
-          help: {
-            title: "Help Request",
-            body: "A visitor needs assistance. Please provide immediate support.",
-          },
-        };
-
-        const message = purposeMessages[purpose] || {
-          title: "Visitor Alert",
-          body: "A visitor has arrived and needs attention.",
-        };
-
-        // Send notification
-        if (typeof pushNotification === "function") {
-          pushNotification(message.title, message.body);
-        }
 
         // Navigate to team selection with purpose parameter
         setTimeout(() => {

@@ -343,7 +343,7 @@
             <!-- Team Selection Cards -->
             <section class="team-links" role="group" aria-label="Team selection options">
                 <!-- iHorizons Card -->
-                <button class="team-card" aria-label="Select iHorizons team" onclick="selectTeam('iHorizons')">
+                <button class="team-card" aria-label="Select iHorizons team" onclick="selectTeam('ihorizons')">
                     <div class="card-logo-container">
                         <img src="./images/ihorizons-logo-small.svg" alt="iHorizons Logo" class="card-logo">
                     </div>
@@ -351,7 +351,7 @@
                 </button>
 
                 <!-- People Dynamic Card -->
-                <button class="team-card" aria-label="Select People Dynamic team" onclick="selectTeam('People Dynamic')">
+                <button class="team-card" aria-label="Select People Dynamic team" onclick="selectTeam('peopledynamics')">
                     <div class="card-logo-container">
                         <img src="./images/people-dynamic-logo-small.svg" alt="People Dynamic Logo" class="card-logo">
                     </div>
@@ -381,8 +381,8 @@
                 case 'delivery':
                     titleElement.textContent = 'Delivery To ...';
                     break;
-                case 'enquiry':
-                    titleElement.textContent = 'Enquiry With ...';
+                case 'inquiry':
+                    titleElement.textContent = 'Inquiry With ...';
                     break;
                 case 'help':
                     titleElement.textContent = 'Need Help From ...';
@@ -405,16 +405,10 @@
             // Highlight selected card
             event.target.closest('.team-card').style.background = 'rgba(255, 255, 255, 0.4)';
 
-            // Send push notification for team selection
-            const teamMessage = {
-                title: `${teamName} Team Alert`,
-                body: `A visitor with ${purpose} needs is waiting for ${teamName} team assistance.`
-            };
-
-            // Send notification
-            if (typeof pushNotification === 'function') {
-                pushNotification(teamMessage.title, teamMessage.body);
-            }
+            // Send single notification for both purpose and team selection
+            // if (typeof sendVisitorNotification === 'function') {
+            //     sendVisitorNotification(purpose, teamName);
+            // }
 
             // Navigate to thank you page with purpose and team parameters
             setTimeout(() => {
